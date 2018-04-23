@@ -12,5 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return ("Home");
 });
+
+Route::get('/users', function () {
+    return ("Users");
+});
+
+Route::get('/users/{id}', function ($id) {
+    return ("Usuari: $id");
+})->where('id', '[0-9]+');
+
+Route::get('/users/new', function () {
+    return ("New user");
+});
+
+Route::get('/hola/{name}/{nick?}', function ($name, $nick = null) {
+   if ( $nick ) {
+      return ("Hola $name ($nick)");
+   } else {
+      return ("Hola $name");
+   }
+});
+
+
